@@ -16,7 +16,7 @@ export async function GET(
     const lat = req.nextUrl.searchParams.get('latitude');
     const long = req.nextUrl.searchParams.get('longitude');
     let cep = req.nextUrl.searchParams.get('cep');
-    const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
+    const GOOGLE_API_KEY = 'AIzaSyDbYoZF3wdpDJYOHm-ewvt1wRzmh2icLrE';
 
     const endpoint = cep ? `address=${cep}` : `latlng=${lat},${long}`;
     const url = `${ADDRESS_APIS.GEOCODE}${endpoint}&key=${GOOGLE_API_KEY}`;
