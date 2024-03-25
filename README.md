@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# README - Desafio COMIGO
 
-## Getting Started
+## Soluções Utilizadas:
 
-First, run the development server:
+- **Gerenciamento de Estado com Redux:** Utilizei Redux para manter o estado da aplicação centralizado e facilitar a manipulação de dados em toda a aplicação.
+  
+- **Requisições HTTP com Axios:** Utilizei Axios para realizar requisições HTTP assíncronas para buscar e enviar dados para o servidor.
+
+- **Componentes de UI Estilizados com shadcn/ui:** Utilizamos shadcn/ui para criar interfaces de usuário modernas com facilidade.
+
+- **Testes Automatizados com Jest:** Utilizei Jest para escrever testes de entrada, incluindo principalmente as requisições principais do sistema.
+
+- **Validação de Dados com Zod:** Utilizei do Zod para validar dados de entrada e garantir a integridade dos dados manipulados pela aplicação.
+
+- **Gerenciamento de Formulários com react-form:** Utilizei react-form para simplificar o processo de criação e validação de formulários em nossa aplicação.
+
+- **Integração com APIs de Geocoding (Google Maps) e ViaCEP:** Utilizei APIs de Geocoding para converter endereços em coordenadas geográficas e APIs de CEP para obter informações detalhadas de endereços com base no CEP fornecido.
+
+## Executar o Projeto em uma VM limpa:
+
+Para executar este projeto em sua máquina local, utilize o script abaixo:
 
 ```bash
+#!/bin/sh
+
+# Script de configuração e execução da aplicação Next.js
+
+# Instalar o Git
+apt-get update
+apt-get install -y git
+
+# Instalar o Node.js e o npm usando NVM (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | sh
+. ~/.bashrc
+nvm install node
+
+# Clonar o repositório do GitHub
+git clone https://github.com/caioValiati/desafio.git minha_aplicacao_nextjs
+
+# Entrar no diretório do projeto
+cd minha_aplicacao_nextjs
+
+# Instalar as dependências do projeto
+npm install
+
+# Iniciar o servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Certifique-se de consultar a documentação de cada tecnologia utilizada para obter mais informações sobre como configurar e utilizar as funcionalidades oferecidas por elas.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Este é apenas um guia básico para entender a estrutura e as tecnologias utilizadas neste projeto. Para obter informações mais detalhadas sobre como contribuir ou utilizar a aplicação, consulte a documentação específica fornecida no repositório do projeto.
