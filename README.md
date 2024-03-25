@@ -42,30 +42,73 @@ Sobre a tela de edição/criação de cooperado: nesta tela, como dito anteriorm
 
 ## Executar o Projeto em uma VM limpa:
 
-Para executar este projeto em sua máquina local, utilize o script abaixo:
+Para executar este projeto em sua máquina local, utilize o script abaixo, ou faça as instalaçoes manualmente e utilize npm i + npm run dev:
 
 ```bash
-#!/bin/sh
+# Verificar se Git está instalado
+if (!(Test-Path "$env:ProgramFiles\Git\cmd\git.exe")) {
+    # Baixar e instalar o Git
+    $gitInstallerUrl = "https://github.com/git-for-windows/git/releases/download/v2.35.1.windows.2/Git-2.35.1.2-64-bit.exe"
+    $gitInstallerPath = "$env:TEMP\GitInstaller.exe"
+    Invoke-WebRequest -Uri $gitInstallerUrl -OutFile $gitInstallerPath
+    Start-Process -FilePath $gitInstallerPath -ArgumentList "/VERYSILENT /NORESTART /SUPPRESSMSGBOXES" -Wait
+    Remove-Item $gitInstallerPath
+}
 
-# Script de configuração e execução da aplicação Next.js
+# Adicionar o diretório do Git ao PATH temporariamente se não estiver presente
+if ($env:Path -notlike "$env:ProgramFiles\Git\cmd") {
+    $env:Path += ";$env:ProgramFiles\Git\cmd"
+}
 
-# Instalar o Git
-apt-get update
-apt-get install -y git
+# Verificar se Node.js está instalado
+if (!(Test-Path "$env:ProgramFiles\nodejs\node.exe")) {
+    # Baixar e instalar o Node.js
+    $nodeVersion = "20.11.1"
+    $nodeInstallerUrl = "https://nodejs.org/dist/v$nodeVersion/node-v$nodeVersion-x64.msi"
+    $nodeInstallerPath = "$env:TEMP\NodeInstaller.msi"
+    Invoke-WebRequest -Uri $nodeInstallerUrl -OutFile $nodeInstallerPath
+    Start-Process -FilePath msiexec.exe -ArgumentList "/i $nodeInstallerPath /qn" -Wait
+    Remove-Item $nodeInstallerPath
+}
 
-# Instalar o Node.js e o npm usando NVM (Node Version Manager)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | sh
-. ~/.bashrc
-nvm install node
+# Adicionar o diretório do Node.js ao PATH temporariamente se não estiver presente
+if ($env:Path -notlike "$env:ProgramFiles\nodejs") {
+    $env:Path += ";$env:ProgramFiles\nodejs"
+}
 
-# Clonar o repositório do GitHub
-git clone https://github.com/caioValiati/desafio/tree/master
+# Atualizar npm para a versão específica se não estiver instalada ou não for a versão correta
+if (!(Get-Command npm -ErrorAction SilentlyContinue) -or ((npm -v) -ne "10.2.4")) {
+    # Instalar npm na versão especificada
+    npm install -g npm@10.2.4
+}
 
-# Entrar no diretório do projeto
-cd minha_aplicacao_nextjs
+# Clonar o repositório
+$repoUrl = "https://github.com/caioValiati/desafio.git"
+$repoPath = "$env:USERPROFILE\desafio"
+if (!(Test-Path $repoPath)) {
+    Write-Host "Cloning repository..."
+    git clone $repoUrl $repoPath
+    Write-Host "Repository cloned."
+} else {
+    Write-Host "Repository already exists."
+}
 
-# Instalar as dependências do projeto
-npm install
+# Mudar para o diretório do projeto
+Set-Location $repoPath
 
-# Iniciar o servidor de desenvolvimento
-npm run dev
+# Executar comando git checkout master
+Write-Host "Checking out master branch..."
+git checkout master
+
+# Instalar dependências se necessário
+if (-not (Test-Path "$repoPath\node_modules")) {
+    Write-Host "Installing project dependencies..."
+    npm install
+    Write-Host "Project dependencies installed."
+} else {
+    Write-Host "Project dependencies already installed."
+}
+
+# Executar comando npm run dev
+Write-Host "Running 'npm run dev' command..."
+npm run dev
