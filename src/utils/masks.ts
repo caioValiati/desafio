@@ -1,10 +1,11 @@
 export const CpfCnpjMask = (value: string, isPfPj: 'CPF' | 'CNPJ') => {
-  if (!value) return ""
+  if (!value || isNaN(parseInt(value))) return ""
   let formattedValue = value;
   if (isPfPj === 'CPF') {
-    formattedValue = formattedValue.replace(/(\d{3})(\d)/, "$1.$2");
-    formattedValue = formattedValue.replace(/(\d{3})(\d)/, "$1.$2");
-    formattedValue = formattedValue.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    formattedValue = formattedValue.replace(/\D/g, '');
+    formattedValue = formattedValue.replace(/(\d{3})(\d)/, '$1.$2');
+    formattedValue = formattedValue.replace(/(\d{3})(\d)/, '$1.$2');
+    formattedValue = formattedValue.replace(/(\d{3})(\d{1,2})$/, '$1-$2')
   } else {
     formattedValue = formattedValue.replace(/^(\d{2})(\d)/, "$1.$2");
     formattedValue = formattedValue.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
