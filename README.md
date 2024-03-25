@@ -28,6 +28,17 @@ Se eu tivesse mais tempo para trabalhar nesta aplicação, algumas ideias que po
 
 4. **Otimização de Desempenho:** Realizar otimizações de desempenho, como a redução do tamanho e a compressão de recursos estáticos, otimização de consultas de banco de dados e implementação de técnicas de carregamento lazy para acelerar o carregamento da página.
 
+## Instrução de Uso:
+
+A aplicação consiste em três telas, a de Login, de cooperados (onde é possível visualizar todos os registros de cooperados), e de detalhes de um cooperado em particular. 
+
+Ao selecionar um cooperado da tabela, você será redirecionado para uma tela de edição, onde pode modificar os dados devidamente e enviar a sua solicitação.
+
+Você também tem a opção de utilizar a função 'Adicionar Cooperado', onde será redirecionado para a mesma tela de detalhes, porém com os campos resetados.
+
+Ao realizar o Login, um token de autenticação é guardado pelo sistema, enquanto o token for válido, você continuará logado.
+
+Sobre a tela de edição/criação de cooperado: nesta tela, como dito anteriormente, você pode informar os detalhes do cooperado para fazer a sua solitação. Para informar os dados de endereço, o sistema conta com algumas funcionalidades que facilitam o preenchimento pelo usuário, estes são: busca por cep, quando preenchido o campo de CEP, o usuário pode escolher realizar a busca, que preencherá alguns campos de endereço automaticamente; mapa para seleção exata de local, ao selecionar um local do mapa, os dados de endereço disponíveis serão enviados para o formulário. 
 
 ## Executar o Projeto em uma VM limpa:
 
