@@ -40,8 +40,8 @@ export default function Login() {
   }
 
   return (
-    <Form id="login-form" {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col justify-center border-2 border-slate-200 p-4 rounded-md space-y-6">
+    <Form {...form}>
+      <form id="login-form" onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col justify-center border-2 border-slate-200 p-4 rounded-md space-y-6">
         <h1 className="text-center">Login</h1>
         <FormField
           control={form.control}

@@ -35,6 +35,6 @@ export async function GET(
     }
     return NextResponse.json(address_data);
   } catch (error: any) {
-    throw new Error(error.message || 'Get failed');
+    return NextResponse.json({error: error.message || 'Get failed'});
   }
 }

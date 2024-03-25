@@ -61,6 +61,7 @@ const cooperadosSlice = createSlice({
         state.error = null;
       })
       .addCase(getCooperados.rejected, (state, action) => {
+        state.cooperados = [];
         state.loading = false;
         state.error = action.error.message || 'Get failed';
       })

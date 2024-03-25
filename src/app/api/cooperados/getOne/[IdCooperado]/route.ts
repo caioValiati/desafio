@@ -1,4 +1,3 @@
-import { logout } from "@/app/api/auth/logout/route";
 import { COMIGO_SERVICES } from "@/constants/comigo-services";
 import axios from "axios";
 import { cookies } from "next/headers";
@@ -16,10 +15,10 @@ export async function GET(
       {headers: {Authorization: `Bearer ${token}`}}
     );
     if (response.status === 401) {
-      return logout(req.url)
+      cookies().delete('bearer')
     }
     return NextResponse.json(response.data);
   } catch (error: any) {
-    throw new Error(error.message || 'Get failed');
+    return NextResponse.json({error: error.message || 'Get failed'});
   }
 }

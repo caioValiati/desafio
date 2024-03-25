@@ -17,6 +17,6 @@ export async function POST(req: NextRequest) {
     
     return response;
   } catch (error: any) {
-    throw new Error(error.message || 'Login failed');
+    return NextResponse.json({error: error.message || 'Login failed'});
   }
 }
