@@ -42,7 +42,7 @@ Sobre a tela de edição/criação de cooperado: nesta tela, como dito anteriorm
 
 ## Executar o Projeto em uma VM limpa:
 
-Para executar este projeto em sua máquina local, utilize o script abaixo, ou faça as instalaçoes manualmente e utilize npm i + npm run dev:
+Para executar este projeto em sua máquina local, execute o script abaixo no PowerShell, ou faça as instalaçoes manualmente e utilize npm i + npm run dev:
 
 ```bash
 # Verificar se Git está instalado
