@@ -60,7 +60,3 @@ npm install
 
 # Iniciar o servidor de desenvolvimento
 npm run dev
-
-Certifique-se de consultar a documentação de cada tecnologia utilizada para obter mais informações sobre como configurar e utilizar as funcionalidades oferecidas por elas.
-
-Este é apenas um guia básico para entender a estrutura e as tecnologias utilizadas neste projeto. Para obter informações mais detalhadas sobre como contribuir ou utilizar a aplicação, consulte a documentação específica fornecida no repositório do projeto.
