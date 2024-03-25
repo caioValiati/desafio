@@ -50,7 +50,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | sh
 nvm install node
 
 # Clonar o repositório do GitHub
-git clone https://github.com/caioValiati/desafio.git minha_aplicacao_nextjs
+git clone https://github.com/caioValiati/desafio/tree/master
 
 # Entrar no diretório do projeto
 cd minha_aplicacao_nextjs
