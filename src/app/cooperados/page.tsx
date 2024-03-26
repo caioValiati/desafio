@@ -72,7 +72,7 @@ export default function CooperadosPage() {
   }, [dispatch])
 
   const table = useReactTable({
-    data: cooperados,
+    data: cooperados ?? [],
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
