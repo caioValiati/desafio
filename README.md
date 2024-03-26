@@ -28,6 +28,10 @@ Se eu tivesse mais tempo para trabalhar nesta aplicação, algumas ideias que po
 
 4. **Otimização de Desempenho:** Realizar otimizações de desempenho, como a redução do tamanho e a compressão de recursos estáticos, otimização de consultas de banco de dados e implementação de técnicas de carregamento lazy para acelerar o carregamento da página.
 
+5. **Funcionalidade de exportação de dados:** Adicionar uma funcionalidade ao botão 'Exportar Dados' da tabela de cooperados, usando uma biblioteca como react-data-export ou xlsx para exportar dados em formatos como CSV ou Excel.
+
+6.  **Padronizar os estados com formato UF/Implementação de dropdown nos campos de estado:** Atualmente os estados podem ser salvos de qualquer modo, o ideal seria uma padronização por uma modelo de UF e seleção de DropDown.
+
 ## Instrução de Uso:
 
 A aplicação consiste em três telas, a de Login, de cooperados (onde é possível visualizar todos os registros de cooperados), e de detalhes de um cooperado em particular. 
